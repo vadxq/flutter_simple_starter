@@ -4,7 +4,9 @@ import 'package:go_router/go_router.dart';
 
 class DetailsPage extends ConsumerWidget {
   const DetailsPage(this.detailCode, {required this.isNuclearCode, super.key});
-  final int detailCode;
+  static String get routeName => 'details';
+  static String get routeLocation => '/$routeName/:id';
+  final String detailCode;
   final bool isNuclearCode;
 
   @override
@@ -21,7 +23,8 @@ class DetailsPage extends ConsumerWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 24),
-                child: Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
+                child: Text(title,
+                    style: const TextStyle(fontWeight: FontWeight.bold)),
               ),
               const SizedBox(height: 60),
               Text('$detailCode'),

@@ -4,6 +4,8 @@ import 'package:go_router/go_router.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
+  static String get routeName => 'home';
+  static String get routeLocation => '/';
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -16,7 +18,7 @@ class HomePage extends ConsumerWidget {
             const Text('Home Page'),
             const Text("There's nothing much you can do, here"),
             ElevatedButton(
-              onPressed: () => context.go('/splash'),
+              onPressed: () => context.go('/details/1'),
               child: const Text('Button'),
             ),
           ],

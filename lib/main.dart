@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'router/router_provider.dart';
+import 'routes/routes.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
@@ -14,7 +14,7 @@ class MyApp extends ConsumerStatefulWidget {
 }
 
 class _MyAppState extends ConsumerState<MyApp> {
- // This widget is the root of your application.
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     final router = ref.watch(goRouterProvider);
