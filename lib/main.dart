@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'routes/routes.dart';
+import 'state/global_state.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
