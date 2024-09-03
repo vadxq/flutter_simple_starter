@@ -1,24 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
-class HomePage extends ConsumerWidget {
-  const HomePage({super.key});
-  static String get routeName => 'home';
-  static String get routeLocation => '/';
+class LoginPage extends ConsumerWidget {
+  const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Home page')),
+      appBar: AppBar(title: const Text('login page')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('Home Page'),
+            const Text('login Page'),
             const Text("There's nothing much you can do, here"),
             ElevatedButton(
-              onPressed: () => context.go('/details/1'),
+              onPressed: () => (),
               child: const Text('Button'),
             ),
           ],

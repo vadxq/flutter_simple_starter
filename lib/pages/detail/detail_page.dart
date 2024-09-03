@@ -4,8 +4,6 @@ import 'package:go_router/go_router.dart';
 
 class DetailsPage extends ConsumerWidget {
   const DetailsPage(this.detailCode, {required this.isNuclearCode, super.key});
-  static String get routeName => 'details';
-  static String get routeLocation => '/$routeName/:id';
   final String detailCode;
   final bool isNuclearCode;
 
@@ -27,7 +25,7 @@ class DetailsPage extends ConsumerWidget {
                     style: const TextStyle(fontWeight: FontWeight.bold)),
               ),
               const SizedBox(height: 60),
-              Text('$detailCode'),
+              Text(detailCode),
               const SizedBox(height: 60),
               ElevatedButton.icon(
                 onPressed: () => context.pop(true),
