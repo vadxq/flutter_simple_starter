@@ -1,0 +1,51 @@
+name: flutter_simple_starter
+repository: .
+
+packages:
+  - .
+  - packages/**
+
+scripts:
+  doctor:
+    run: |
+      flutter --version
+      dart --version
+      flutter doctor -v
+    description: 检查 Flutter 3.41 环境与平台工具链
+
+  bootstrap:
+    run: melos bootstrap
+    description: 安装单 app 与本地模块包依赖
+
+  format:
+    run: melos exec -- "dart format ."
+    description: 格式化单 app 与所有模块包
+
+  format_check:
+    run: melos exec -- "dart format --set-exit-if-changed ."
+    description: 检查代码格式
+
+  fix:
+    run: melos exec -- "dart fix --apply"
+    description: 应用 Flutter/Dart 官方自动修复
+
+  deps_outdated:
+    run: melos exec -- "dart pub outdated"
+    description: 检查依赖可升级情况
+
+  analyze:
+    run: melos exec -- "dart analyze ."
+    description: 运行静态分析
+
+  test:
+    run: |
+      melos exec --flutter --dir-exists="test" -- "flutter test"
+      melos exec --no-flutter --dir-exists="test" -- "dart test"
+    description: 运行测试
+
+  ci:
+    run: |
+      melos run format_check
+      melos run analyze
+      melos run test
+    description: CI 全量检查

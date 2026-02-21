@@ -1,0 +1,20 @@
+name: feature_auth
+description: Auth feature package with layered architecture.
+publish_to: 'none'
+version: 0.1.0
+resolution: workspace
+
+environment:
+  sdk: '>=3.11.0 <4.0.0'
+
+dependencies:
+  app_core: any
+  flutter:
+    sdk: flutter
+  flutter_riverpod: ^3.2.1
+  shared_contracts: any
+
+dev_dependencies:
+  flutter_lints: ^6.0.0
+  flutter_test:
+    sdk: flutter

@@ -1,79 +1,51 @@
 # flutter_simple_starter
 
-A new Flutter project.
+基于 **Single App + Modular Packages + Workspace** 的 Flutter 架构模板（Flutter 3.41 基线）。
 
-## Getting Started
+## 架构原则
 
-This project is a starting point for a Flutter application.
+- 只保留一个可运行应用（根目录）。
+- 按领域拆分模块包（`packages/*`）。
+- 用 Pub Workspace + Melos 统一依赖与工程命令。
 
-A few resources to get you started if this is your first Flutter project:
+## 目录结构
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-
-## install
-
-```bash
-# install pub
-
-# build generate
-dart run build_runner build # or dart run build_runner watch
-
-# husky
-dart run husky install
+```text
+lib/                      # 单 app 入口与组装层
+test/                     # 单 app 测试
+packages/
+  app_core/               # 环境/网络/存储/错误基建
+  design_system/          # 主题与通用组件
+  feature_auth/           # 认证模块
+  feature_post/           # 帖子模块
+  shared_contracts/       # 跨模块契约
+docs/
+  architecture.md         # 架构文档
+  flutter_3_41_planning.md # 3.41 技术栈与平台规划
+  platform_release_checklist.md # iOS/Android 发布检查清单
+  dependency_baseline.md  # 依赖基线
+  implementation_task_log.md
+  verification_report.md
+  old/                    # 历史归档文档
 ```
 
-## run (Bash)
-
-maby you need to use R or r to reload
-
-- dev
+## 快速开始
 
 ```bash
-
-# iOS
-open -a Simulator && flutter run -d ios --dart-define=APP_ENV=dev
-
-# web
-flutter run -d chrome --web-port=8080 --web-hostname=localhost --dart-define=APP_ENV=dev --dart-define=BROWSER_IMAGE_DECODING_ENABLED=false --web-renderer canvaskit
+dart pub get
+dart run melos bootstrap
+dart run melos run ci
+flutter run --dart-define=APP_ENV=dev
 ```
 
-- prod
+## 常用命令
 
 ```bash
-# iOS
-open -a Simulator && flutter run -d ios --dart-define=APP_ENV=release
-
-# web
-flutter run -d chrome --web-port=8080 --web-hostname=localhost --dart-define=APP_ENV=release --dart-define=BROWSER_IMAGE_DECODING_ENABLED=false --web-renderer canvaskit
-```
-
-## run in vscode
-
-Run the command according to the above configuration
-
-F5, select the device in the lower right corner, the default is the local device, macos or linux or windows
-
-### build
-
-- dev
-
-```bash
-# iOS
-flutter build web --release --dart-define=APP_ENV=dev
-# web
-flutter build ios --release --dart-define=APP_ENV=dev
-```
-
-- prod
-
-```bash
-# iOS
-flutter build ios --release --dart-define=APP_ENV=release
-# web
-flutter build web --release --dart-define=APP_ENV=release
+dart run melos run format
+dart run melos run format_check
+dart run melos run fix
+dart run melos run analyze
+dart run melos run test
+dart run melos run deps_outdated
+dart run melos run ci
 ```
